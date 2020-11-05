@@ -1,0 +1,38 @@
+/*------------------------------------------------------------*/
+/* @@LIBRARY: GITTEST123                                      */
+/* @@FILE: QCLSRC                                             */
+/* @@MEMBER: MONOPATHC                                        */
+/* @@TYPE: CLLE                                               */
+/* @@TEXT: Set Pase Path For Mono                             */
+/*------------------------------------------------------------*/
+             PGM        PARM(&MONOPATH)
+
+             DCL        VAR(&MONOPATH) TYPE(*CHAR) LEN(255)
+             DCL        VAR(&PASEPATH) TYPE(*CHAR) LEN(1024)
+             DCL        VAR(&PATH) TYPE(*CHAR) LEN(1024)
+
+/* If default mono path data area, retreive from data area */
+             IF         COND(&MONOPATH *EQ *DEFAULT) THEN(DO)
+             RTVDTAARA  DTAARA(MONOI/MONOPATH *ALL) RTNVAR(&MONOPATH)
+             ENDDO
+
+/* Set up PASE classpath for PASE and Mono */
+             CHGVAR     VAR(&PASEPATH) +
+                          VALUE('/QOpenSys/usr/bin:/usr/ccs/bin:/QOpe+
+                          nSys/usr/bin/X11:/usr/sbin:.:/usr/bin:/QOpe+
+                          nSys/usr/local/bin:/usr/local/bin:/usr/loca+
+                          /sbin:' |< &MONOPATH)
+
+             ADDENVVAR  ENVVAR(PASE_PATH) VALUE(&PASEPATH) +
+                          LEVEL(*JOB) REPLACE(*YES)
+
+/* Set general PATH for PASE and Mono */
+             CHGVAR     VAR(&PATH) +
+                          VALUE('/QOpenSys/usr/bin:/usr/ccs/bin:/QOpe+
+                          nSys/usr/bin/X11:/usr/sbin:.:/usr/bin:' +
+                          |< &MONOPATH)
+
+             ADDENVVAR  ENVVAR(PATH) VALUE(&PATH) LEVEL(*JOB) +
+                          REPLACE(*YES)
+
+             ENDPGM
