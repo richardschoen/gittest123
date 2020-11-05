@@ -1,0 +1,83 @@
+/*------------------------------------------------------------*/
+/* @@LIBRARY: GITTEST123                                      */
+/* @@FILE: QCLSRC                                             */
+/* @@MEMBER: MONODB2PTC                                       */
+/* @@TYPE: CLLE                                               */
+/* @@TEXT: Set Yum,unixODBC and DB2 Connect ODBC Driver Paths */
+/*------------------------------------------------------------*/
+             PGM        PARM(&MONOPATH)
+
+             DCL        VAR(&MONOPATH) TYPE(*CHAR) LEN(255)
+             DCL        VAR(&PASEPATH) TYPE(*CHAR) LEN(1024)
+
+/* If default mono path data area, retreive from data area */
+             IF         COND(&MONOPATH *EQ *DEFAULT) THEN(DO)
+             RTVDTAARA  DTAARA(MONOI/MONOPATH *ALL) RTNVAR(&MONOPATH)
+             ENDDO
+
+/* Set up LIBPATH for DB2 Connect and Yum Packages */
+             ADDENVVAR  ENVVAR(LIBPATH) +
+                          VALUE('/QOpenSys/usr/local/lib:/home/db2_cl+
+                          i_odbc_driver/dsdriver/aix64/lib:/QOpenSys/+
+                          pkgs/lib') CCSID(*JOB) LEVEL(*JOB) +
+                          REPLACE(*YES)
+
+/* Set multithreaded environment variable */
+             ADDENVVAR  ENVVAR(QIBM_MULTI_THREADED) VALUE(Y) +
+                          REPLACE(*YES)
+
+/* Set path to PASE, MONO and Yum Packages */
+             CHGVAR     VAR(&PASEPATH) +
+                          VALUE('/QOpenSys/usr/bin:/usr/ccs/bin:/QOpe+
+                          nSys/usr/bin/X11:/usr/sbin:.:/usr/bin:/QOpe+
+                          nSys/usr/local/bin:/usr/local/bin:/usr/loca+
+                          l/sbin:' |< &MONOPATH |< +
+                          ':/QOpenSys/pkgs/bin:/QOpenSys/pkgs/lib:/ho+
+                          me/db2_cli_odbc_driver/dsdriver/aix64/bin:/+
+                          home/db2_cli_odbc_driver/dsdriver/aix64/lib+
+                          :$PATH')
+
+             ADDENVVAR  ENVVAR(PASE_PATH) VALUE(&PASEPATH) +
+                          LEVEL(*JOB) REPLACE(*YES)
+
+/* Set PASE flag to Ignore bad AIX errors - libcfg.a or libodm.a  */
+/* This helps the db2o.o driver ignore the bad AIX libs we copied.*/
+             ADDENVVAR  ENVVAR(PASE_SYSCALL_NOSIGILL) +
+                          VALUE('ALL:quotactl=EPERM:audit=0') +
+                          LEVEL(*JOB) REPLACE(*YES)
+
+/* Set DB2 Connect Path Install Dir Info */
+             ADDENVVAR  ENVVAR(DB2_CLI_DRIVER_INSTALL_PATH) +
+                          VALUE('/home/db2_cli_odbc_driver/dsdriver/a+
+                          ix64') LEVEL(*JOB) REPLACE(*YES)
+
+/* Set DB2 Connect and Yum Library Paths */
+             ADDENVVAR  ENVVAR(LD_LIBRARY_PATH) +
+                          VALUE('/home/db2_cli_odbc_driver/dsdriver/a+
+                          ix64/lib:/QOpenSys/pkgs/lib') LEVEL(*JOB) +
+                          REPLACE(*YES)
+
+/* Set general PATH */
+             ADDENVVAR  ENVVAR(PATH) +
+                          VALUE('/home/db2_cli_odbc_driver/dsdriver/a+
+                          ix64/bin:/home/db2_cli_odbc_driver/dsdriver+
+                          /aix64/adm:$PATH') LEVEL(*JOB) REPLACE(*YES)
+
+/* Set general PATH for Qshell and Yum binaries */
+/***** QSH PATH  ADDENVVAR  ENVVAR(PATH) +
+                          VALUE('/QOpenSys/pkgs/bin:/QOpenSys/usr/bin+
+                          :/QOpenSys/QIBM/ProdData/OPS/tools/bin:/QOp+
+                          enSys/usr/bin:/usr/ccs/bin:/usr/sbin:usr/bi+
+                          n') LEVEL(*JOB) REPLACE(*YES) *****/
+
+/* Set general PATH for binaries. Qshell, Yum, DB2 Connect (if loaded) */
+             ADDENVVAR  ENVVAR(PATH) +
+                          VALUE('/QOpenSys/pkgs/bin:/QOpenSys/usr/bin+
+                          :/QOpenSys/QIBM/ProdData/OPS/tools/bin:/QOp+
+                          enSys/usr/bin:/usr/ccs/bin:/usr/sbin:/usr/b+
+                          in:/usr/bin/home/db2_cli_odbc_driver/dsdriv+
+                          er/aix64/bin:/home/db2_cli_odbc_driver/dsdr+
+                          iver/aix64/adm:$PATH') LEVEL(*JOB) +
+                          REPLACE(*YES)
+
+             ENDPGM
