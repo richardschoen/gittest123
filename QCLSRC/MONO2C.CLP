@@ -6,7 +6,7 @@
 /* @@TEXT: Run .Net Console App via Mono - Single Cmd Line    */
 /*------------------------------------------------------------*/
              PGM        PARM(&WORKDIR &EXEFILE &ARGS &MONOOPTPRE &MONOOPT +
-                          /* This is a comment */
+                          /* This is a comment   */
                           &OUTFILE &MONOPATH &DSPSTDOUT &LOGSTDOUT +
                           &PRTSTDOUT &DLTSTDOUT)
 
