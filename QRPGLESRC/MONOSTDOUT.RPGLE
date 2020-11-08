@@ -4,7 +4,7 @@
       * @@FILE: QRPGLESRC
       * @@MEMBER: MONOSTDOUT
       * @@TYPE: RPGLE
-      * @@TEXT: Read and parse stdout log....xx
+      * @@TEXT: Read and parse stdout log....xxx
       *---------------------------------------------------------
      /***************************************************************
       * Program: MONOSTDOUT
