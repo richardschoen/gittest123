@@ -4,11 +4,11 @@
       * @@FILE: QRPGLESRC
       * @@MEMBER: MONOSTDOUT
       * @@TYPE: RPGLE
-      * @@TEXT: Read and parse stdout log
+      * @@TEXT: Read and parse stdout log....xxxz
       *---------------------------------------------------------
      /***************************************************************
       * Program: MONOSTDOUT
-      * Author : Richard Schoen
+      * Author : Richard J Schoen.
       * Desc . : This program will read the selected STDOUT log file and
       *          send back info to the caller for processing the
       *          selected log messages. MONOSTDOUT is created in QTEMP
@@ -25,9 +25,9 @@
       //  SEND Program Message API
 
      D QMHSNDPM        PR                  ExtPgm('QMHSNDPM')
-     D  szMsgID                       7A   Const
-     D  szMsgFile                    20A   Const
-     D  szMsgData                  6000A   Const OPTIONS(*varsize)
+     D  szMsgID2                      7A   Const
+     D  szMsgFile2                   20A   Const
+     D  szMsgData2                 6000A   Const OPTIONS(*varsize)
      D  nMsgDataLen                  10I 0 Const
 
       **  Message Type may be one of the following:
@@ -95,7 +95,7 @@
 
          // Pick off the return parm values
          // and set the return fields.
-        SndMsg(%TRIM(LogData):'*INFO':'*PRVPGM') ;
+        SndMsg(%TRIM(LogData):'*INFO':'*PRVPGM');
 
         //IF PARM5 = 'PARM1';
         //    RTNP1 = LOGRTN;

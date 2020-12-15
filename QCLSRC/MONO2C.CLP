@@ -5,10 +5,9 @@
 /* @@TYPE: CLP                                                */
 /* @@TEXT: Run .Net Console App via Mono - Single Cmd Line    */
 /*------------------------------------------------------------*/
-             PGM        PARM(&WORKDIR &EXEFILE &ARGS &MONOOPTPRE &MONOOPT +
-                          /* This is a comment   */
-                          &OUTFILE &MONOPATH &DSPSTDOUT &LOGSTDOUT +
-                          &PRTSTDOUT &DLTSTDOUT)
+             PGM        PARM(&WORKDIR &EXEFILE &ARGS &MONOOPTPRE +
+                          &MONOOPT &OUTFILE &MONOPATH &DSPSTDOUT +
+                          &LOGSTDOUT &PRTSTDOUT &DLTSTDOUT)
 
              DCL        VAR(&MONOOPTPRE) TYPE(*CHAR) LEN(200)
              DCL        VAR(&MONOOPT) TYPE(*CHAR) LEN(200)
