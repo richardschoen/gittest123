@@ -10,7 +10,7 @@
              DCL        VAR(&MONOPATH) TYPE(*CHAR) LEN(255)
              DCL        VAR(&PASEPATH) TYPE(*CHAR) LEN(1024)
 
-/* If default mono path data area, retreive from data area */
+/**If default mono path data area, retreive from data area */
              IF         COND(&MONOPATH *EQ *DEFAULT) THEN(DO)
              RTVDTAARA  DTAARA(MONOI/MONOPATH *ALL) RTNVAR(&MONOPATH)
              ENDDO
