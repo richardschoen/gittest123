@@ -1,5 +1,5 @@
       *---------------------------------------------------------
-      * Source information
+      *zSource information
       * @@LIBRARY: GITTEST123
       * @@FILE: QRPGLESRC
       * @@MEMBER: MONOSTDOUT
