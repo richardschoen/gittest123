@@ -9,7 +9,7 @@
                           /* This is a comment   */
                           &OUTFILE &MONOPATH &DSPSTDOUT &LOGSTDOUT +
                           &PRTSTDOUT &DLTSTDOUT)
-
+             /* */  
              DCL        VAR(&MONOOPTPRE) TYPE(*CHAR) LEN(200)
              DCL        VAR(&MONOOPT) TYPE(*CHAR) LEN(200)
              DCL        VAR(&MONOPATH) TYPE(*CHAR) LEN(255)
