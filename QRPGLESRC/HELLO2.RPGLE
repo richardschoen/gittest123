@@ -9,7 +9,7 @@
      **FREE
      // This is a comment......
      Dcl-S text char(5);
-
+          **FREE
      text = 'hello git again;
 
      dsply text;
