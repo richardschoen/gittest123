@@ -2,7 +2,7 @@
       * Source information
       * @@LIBRARY: GITTEST123
       * @@FILE: QRPGLESRC
-      * @@MEMBER: MONOSTDOUT
+      * @@MEMBER: MONOSTDOU3
       * @@TYPE: RPGLE
       * @@TEXT: Read and parse stdout log....xxxzxaaa
       *---------------------------------------------------------
@@ -16,7 +16,7 @@
       *          Uses its own custom CPF message: NET9898 which
       *          stands for Mono/.Net message.
       *          This way .Net console messages can be picked out of
-      *          the joblog if desired by CPF ID.
+      *          the joblog if desired by CPF Message
       ***************************************************************/
      H DFTACTGRP(*NO) ACTGRP(*NEW)
 
