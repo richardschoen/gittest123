@@ -7,7 +7,7 @@
       * @@TEXT: Read and parse stdout log....xxxzxaaa
       *---------------------------------------------------------
      /***************************************************************
-      * Program: MONOSTDOUT      FDSFSD           x
+      * Program: MONOSTDOUT
       * Author : Richard J Schoen
       * Desc . : This program will read the selected STDOUT log file and
       *          send back info to the caller for processing the
