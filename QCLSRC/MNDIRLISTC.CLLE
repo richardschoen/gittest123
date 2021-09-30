@@ -9,7 +9,7 @@
                           &OUTPUTFILE &REPLACE &THROTTLEMS &OUTFILE +
                           &MONOPATH &DSPSTDOUT &LOGSTDOUT +
                           &PRTSTDOUT &DLTSTDOUT)
-/***/
+//**/
              DCL        VAR(&IFSDIR) TYPE(*CHAR) LEN(255)
              DCL        VAR(&FILEFILTER) TYPE(*CHAR) LEN(100)
              DCL        VAR(&INCLSUBDIR) TYPE(*CHAR) LEN(5)
