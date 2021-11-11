@@ -14,7 +14,7 @@
       *    sadsd selected log messages. MONOSTDOUT is created in QTEMP
       *          at runtime.
       *          Uses its own custom CPF message: NET9898 which
-      *          stands for Mono/.Net message.
+      *  fdsfff  stands for Mono/.Net message.
       *          This way .Net console messages can be picked out of
       *          the joblog if desired by CPF ID.
       ***************************************************************/
