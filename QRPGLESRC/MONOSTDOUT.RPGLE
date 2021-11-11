@@ -11,10 +11,10 @@
       * Author : Richard J Schoen
       * Desc . : This program will read the selected STDOUT log file and
       *          send back info to the caller for processing the
-      *    sadsd selected log messages. MONOSTDOUT is created in QTEMP
+      *          selected log messages. MONOSTDOUT is created in QTEMP
       *          at runtime.
       *          Uses its own custom CPF message: NET9898 which
-      *  fdsfff  stands for Mono/.Net message.
+      *          stands for Mono/.Net message.
       *          This way .Net console messages can be picked out of
       *          the joblog if desired by CPF ID.
       ***************************************************************/
