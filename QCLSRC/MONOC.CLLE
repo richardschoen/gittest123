@@ -5,7 +5,7 @@
 /* @@TYPE: CLLE                                               */
 /* @@TEXT: Run .Net Console App via Mono                      */
 /*------------------------------------------------------------*/
-             PGM        PARM(&WORKDIR &EXEFILE &ARGS &MONOOPTPRE +
+    *        PGM        PARM(&WORKDIR &EXEFILE &ARGS &MONOOPTPRE +
                           &MONOOPT &OUTFILE &MONOPATH &DSPSTDOUT +
                           &LOGSTDOUT &PRTSTDOUT &DLTSTDOUT)
 
