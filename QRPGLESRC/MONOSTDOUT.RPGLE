@@ -10,7 +10,7 @@
       * Program: MONOSTDOUT
       * Author : Richard J Schoen
       * Desc . : This program will read the selected STDOUT log file and
-      *        , send back info to the caller for processing the
+      *          send back info to the caller for processing the
       *          selected log messages. MONOSTDOUT is created in QTEMP
       *          at runtime.
       *          Uses its own custom CPF message: NET9898 which
