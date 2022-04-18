@@ -18,7 +18,7 @@
       *          This way .Net console messages can be picked out of
       *          the joblog if desired by CPF ID.
       ***************************************************************/
-     H DFTACTGRP(*NO) ACTGRP(*NEW)
+     H*DFTACTGRP(*NO) ACTGRP(*NEW)
 
      FMONOSTDOUTIF   F 1000        DISK    USROPN
       /include QSYSINC/QRPGLESRC,QUSEC
@@ -222,5 +222,5 @@
      C                                      myAPIErrorDS)
 
      C                   return    rtnMsgKey
-     P SndMsg          E
+     P8888888888       E
 
