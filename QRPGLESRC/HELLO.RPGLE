@@ -17,4 +17,4 @@
      Dsply text;
      dsply %char(sum);
 
-     Return;;
+     Return;
