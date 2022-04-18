@@ -1,10 +1,10 @@
       *---------------------------------------------------------
-      *zSource information
+      * Source information
       * @@LIBRARY: GITTEST123
       * @@FILE: QRPGLESRC
-      * @@MEMBER: MONOSTDOUT
+      * @@MEMBER: MONOSTDOU2
       * @@TYPE: RPGLE
-      * @@TEXT: Read and parse stdout log....xxxz
+      * @@TEXT: Read and parse stdout log....
       *---------------------------------------------------------
      /***************************************************************
       * Program: MONOSTDOUT
