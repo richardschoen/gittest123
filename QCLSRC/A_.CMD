@@ -23,4 +23,4 @@
                           standard output result')
  QUAL2:      QUAL       TYPE(*NAME) LEN(10) DFT(MONOSTDOUT) EXPR(*YES)
              QUAL       TYPE(*NAME) LEN(10) DFT(QTEMP) EXPR(*YES) +
-                          PROMPT('Libraryzz')
+                          PROMPT('Library')
