@@ -4,11 +4,11 @@
       * @@FILE: QRPGLESRC
       * @@MEMBER: MONOSTDOUT
       * @@TYPE: RPGLE
-      * @@TEXT: Read and parse stdout log....
+      * @@TEXT: Read and parse stdout log....xxxz
       *---------------------------------------------------------
      /***************************************************************
       * Program: MONOSTDOUT
-      * Author : Richard J Schoen
+      * Author : Richard J Schoen.
       * Desc . : This program will read the selected STDOUT log file and
       *          send back info to the caller for processing the
       *          selected log messages. MONOSTDOUT is created in QTEMP
@@ -18,7 +18,7 @@
       *          This way .Net console messages can be picked out of
       *          the joblog if desired by CPF ID.
       ***************************************************************/
-     H*DFTACTGRP(*NO) ACTGRP(*NEW)
+     H DFTACTGRP(*NO) ACTGRP(*NEW)
 
      FMONOSTDOUTIF   F 1000        DISK    USROPN
       /include QSYSINC/QRPGLESRC,QUSEC
@@ -222,5 +222,5 @@
      C                                      myAPIErrorDS)
 
      C                   return    rtnMsgKey
-     P SngMsg          E
+     P SndMsg          E
 
