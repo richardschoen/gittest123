@@ -4,7 +4,7 @@
       * @@FILE: QRPGLESRC
       * @@MEMBER: MONOSTDOUT
       * @@TYPE: RPGLE
-      * @@TEXT: Read and parse stdout log....xxxz  sdsasadaszzzzzxzxz
+      * @@TEXT: Read and parse stdout log....
       *---------------------------------------------------------
      /***************************************************************
       * Program: MONOSTDOUT
@@ -222,5 +222,5 @@
      C                                      myAPIErrorDS)
 
      C                   return    rtnMsgKey
-     P8888888888       E
+     P SngMsg          E
 
