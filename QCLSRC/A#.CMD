@@ -5,7 +5,7 @@
 /* @@TYPE: CMD                                                */
 /* @@TEXT: End NGINX Web Server                               */
 /*------------------------------------------------------------*/
-             CMD        PROMPT('End NGINX Web Server')
+A#           CMD        PROMPT('End NGINX Web Server')
              PARM       KWD(NGINXBIN) TYPE(*CHAR) LEN(255) +
                           DFT('/QopenSys/pkgs/bin/nginx') +
                           CASE(*MIXED) PROMPT('NGINX runtime binary')

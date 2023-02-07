@@ -3,7 +3,7 @@
 /* @@FILE: QCLSRC                                             */
 /* @@MEMBER: $$                                               */
 /* @@TYPE: CMD                                                */
-/* @@TEXT: End NGINX Web Server                               */
+/* @@TEXT: Source Member Name with $ Signs                    */
 /*------------------------------------------------------------*/
 F            CMD        PROMPT('End NGINX Web Server.')
              PARM       KWD(NGINXBIN) TYPE(*CHAR) LEN(255) +

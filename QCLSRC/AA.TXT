@@ -1,0 +1,9 @@
+      *---------------------------------------------------------
+      * Source information
+      * @@LIBRARY: GITTEST123
+      * @@FILE: QCLSRC
+      * @@MEMBER: AA
+      * @@TYPE: TXT
+      * @@TEXT: New Member
+      *---------------------------------------------------------
+gfdfgdgfdgfdgfdgf

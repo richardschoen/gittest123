@@ -1,17 +1,16 @@
 /*------------------------------------------------------------*/
 /* @@LIBRARY: GITTEST123                                      */
 /* @@FILE: QCLSRC                                             */
-/* @@MEMBER: MONO2C                                           */
-/* @@TYPE: CLP                                                */
-/* @@TEXT: Run .Net Console App via Mono - Single Cmd Line    */
+/* @@MEMBER: MONOC                                            */
+/* @@TYPE: CLLE                                               */
+/* @@TEXT: Run .Net Console App via Mono                      */
 /*------------------------------------------------------------*/
-             PGM        PARM(&WORKDIR &EXEFILE &ARGS &MONOOPTPRE &MONOOPT +
-                          /* This is a comment   */
-                          &OUTFILE &MONOPATH &DSPSTDOUT &LOGSTDOUT +
-                          &PRTSTDOUT &DLTSTDOUT)
+             PGM        PARM(&WORKDIR &EXEFILE &ARGS &MONOOPTPRE +
+                          &MONOOPT &OUTFILE &MONOPATH &DSPSTDOUT +
+                          &LOGSTDOUT &PRTSTDOUT &DLTSTDOUT)
 
-             DCL        VAR(&MONOOPTPRE) TYPE(*CHAR) LEN(200)
              DCL        VAR(&MONOOPT) TYPE(*CHAR) LEN(200)
+             DCL        VAR(&MONOOPTPRE) TYPE(*CHAR) LEN(200)
              DCL        VAR(&MONOPATH) TYPE(*CHAR) LEN(255)
              DCL        VAR(&OUTFILE) TYPE(*CHAR) LEN(20)
              DCL        VAR(&OFILE) TYPE(*CHAR) LEN(10)
@@ -19,7 +18,6 @@
              DCL        VAR(&WORKDIR) TYPE(*CHAR) LEN(255)
              DCL        VAR(&EXEFILE) TYPE(*CHAR) LEN(255)
              DCL        VAR(&EXEFULL) TYPE(*CHAR) LEN(255)
-             DCL        VAR(&ARGS) TYPE(*CHAR) LEN(1024)
              DCL        VAR(&DSPSTDOUT) TYPE(*CHAR) LEN(4)
              DCL        VAR(&LOGSTDOUT) TYPE(*CHAR) LEN(4)
              DCL        VAR(&PRTSTDOUT) TYPE(*CHAR) LEN(4)
@@ -65,6 +63,9 @@
              DCL        VAR(&MONOEXE) TYPE(*CHAR) LEN(255)
              DCL        VAR(&QDATE) TYPE(*CHAR) LEN(6)
              DCL        VAR(&QTIME) TYPE(*CHAR) LEN(9)
+             DCL        VAR(&ARGS) TYPE(*CHAR) LEN(8002)
+             DCL        VAR(&ARGS2) TYPE(*CHAR) LEN(8000)
+             DCL        VAR(&CT) TYPE(*DEC) STG(*AUTO) LEN(3 0)
 
 /*----------------------------------------------------------------------------*/
 /* Global error monitor */
@@ -80,7 +81,131 @@
              ENDDO
 
 /*----------------------------------------------------------------------------*/
-/* Parse outfile */
+/* Parse command line parms - up to 40 cmd line args */
+/*----------------------------------------------------------------------------*/
+             CHGVAR     VAR(&CT) VALUE(%BINARY(&ARGS 1 2))
+             IF         COND(&CT > 0) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE('"' |< %SST(&ARGS 3 200) |< '"'))
+             IF         COND(&CT > 1) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 203 +
+                          200) |< '"'))
+             IF         COND(&CT > 2) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 403 +
+                          200) |< '"'))
+             IF         COND(&CT > 3) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 603 +
+                          200) |< '"'))
+             IF         COND(&CT > 4) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 803 +
+                          200) |< '"'))
+             IF         COND(&CT > 5) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 1003 +
+                          200) |< '"'))
+             IF         COND(&CT > 6) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 1203 +
+                          200) |< '"'))
+             IF         COND(&CT > 7) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 1403 +
+                          200) |< '"'))
+             IF         COND(&CT > 8) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 1603 +
+                          200) |< '"'))
+             IF         COND(&CT > 9) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 1803 +
+                          200) |< '"'))
+             IF         COND(&CT > 10) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 2003 +
+                          200) |< '"'))
+             IF         COND(&CT > 11) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 2203 +
+                          200) |< '"'))
+             IF         COND(&CT > 12) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 2403 +
+                          200) |< '"'))
+             IF         COND(&CT > 13) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 2603 +
+                          200) |< '"'))
+             IF         COND(&CT > 14) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 2803 +
+                          200) |< '"'))
+             IF         COND(&CT > 15) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 3003 +
+                          200) |< '"'))
+             IF         COND(&CT > 16) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 3203 +
+                          200) |< '"'))
+             IF         COND(&CT > 17) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 3403 +
+                          200) |< '"'))
+             IF         COND(&CT > 18) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 3603 +
+                          200) |< '"'))
+             IF         COND(&CT > 19) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 3803 +
+                          200) |< '"'))
+             IF         COND(&CT > 20) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 4003 +
+                          200) |< '"'))
+             IF         COND(&CT > 21) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 4203 +
+                          200) |< '"'))
+             IF         COND(&CT > 22) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 4403 +
+                          200) |< '"'))
+             IF         COND(&CT > 23) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 4603 +
+                          200) |< '"'))
+             IF         COND(&CT > 24) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 4803 +
+                          200) |< '"'))
+             IF         COND(&CT > 25) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 5003 +
+                          200) |< '"'))
+             IF         COND(&CT > 26) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 5203 +
+                          200) |< '"'))
+             IF         COND(&CT > 27) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 5403 +
+                          200) |< '"'))
+             IF         COND(&CT > 28) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 5603 +
+                          200) |< '"'))
+             IF         COND(&CT > 29) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 5803 +
+                          200) |< '"'))
+             IF         COND(&CT > 30) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 6003 +
+                          200) |< '"'))
+             IF         COND(&CT > 31) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 6203 +
+                          200) |< '"'))
+             IF         COND(&CT > 32) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 6403 +
+                          200) |< '"'))
+             IF         COND(&CT > 33) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 6603 +
+                          200) |< '"'))
+             IF         COND(&CT > 34) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 6803 +
+                          200) |< '"'))
+             IF         COND(&CT > 35) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 7003 +
+                          200) |< '"'))
+             IF         COND(&CT > 36) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 7203 +
+                          200) |< '"'))
+             IF         COND(&CT > 37) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 7403 +
+                          200) |< '"'))
+             IF         COND(&CT > 38) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 7603 +
+                          200) |< '"'))
+             IF         COND(&CT > 39) THEN(CHGVAR VAR(&ARGS2) +
+                          VALUE(&ARGS2 |> '"' |< %SST(&ARGS 7803 +
+                          200) |< '"'))
+
+/*----------------------------------------------------------------------------*/
+/* Parse outfile parm */
 /*----------------------------------------------------------------------------*/
              CHGVAR     VAR(&OLIB) VALUE(%SST(&OUTFILE 11 10))
              CHGVAR     VAR(&OFILE) VALUE(%SST(&OUTFILE 1 10))
@@ -225,12 +350,12 @@
 /* SET UP PASE CLASSPATH                                     */
 /* Note: Commented out. Set with MONODB2PTH command before calling.*/
 /*----------------------------------------------------------------------------*/
-/****        ADDENVVAR  ENVVAR(PASE_PATH) +
+ /****       ADDENVVAR  ENVVAR(PASE_PATH) +
                           VALUE('/QOpenSys/usr/bin:/usr/ccs/bin:/QOpe+
                           nSys/usr/bin/X11:/usr/sbin:.:/usr/bin:/QOpe+
                           nSys/usr/local/bin:/usr/local/bin:/usr/loca+
                           /sbin:/opt/mono/bin') LEVEL(*JOB) +
-                          REPLACE(*YES)     ****/
+                          REPLACE(*YES)                  ****/
 
 /*----------------------------------------------------------------------------*/
 /* CREATE TEMPORARY PASE OUTPUT FILES                           */
@@ -263,6 +388,9 @@
 /*----------------------------------------------------------------------------*/
 /* SET Mono, Yum, UnixODBC and DB2 Connect Paths                              */
 /* This command call supercedes all the above ADDENVVAR calls.                */
+/*       Possible Mono Env:                                                   */
+/*       /opt/mono/bin - Calvins save file build                              */
+/*       /QOpenSys/pkgs/bin - Yum RPM build from QSECOFR repo. (Dft)          */
 /*----------------------------------------------------------------------------*/
              /* As of V1.04 - MONODB2PTH or MONOPATH called external */
              /* MONODB2PTH MONOPATH(&MONOPATH) */
@@ -274,7 +402,7 @@
              CHGVAR     VAR(&CMD) VALUE('cd' |> &WORKDIR |> '&&' |> +
                           'PATH=' |< &MONOPATH |< ':$PATH' |> '&&' +
                           |> 'export PATH' |> '&&' |> &MONOOPTPRE +
-                          |> 'mono' |> &MONOOPT |> &EXEFILE |> &ARGS)
+                          |> 'mono' |> &MONOOPT |> &EXEFILE |> &ARGS2)
 
 /*----------------------------------------------------------------------------*/
 /* Run .Net program via MONO now                                              */
@@ -420,3 +548,4 @@ ERRORS:
                           occurred while calling .Net program. +
                           Check the joblog') MSGTYPE(*ESCAPE)
 
+             ENDPGM
