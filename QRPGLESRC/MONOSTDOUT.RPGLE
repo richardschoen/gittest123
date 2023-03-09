@@ -29,7 +29,7 @@
      D  szMsgFile2                   20A   Const
      D  szMsgData2                 6000A   Const OPTIONS(*varsize)
      D  nMsgDataLen                  10I 0 Const
-
+      ** New comment
       **  Message Type may be one of the following:
       **  *COMP    - Completion
       **  *DIAG    - Diagnostic
