@@ -8,7 +8,7 @@
       *---------------------------------------------------------
      /***************************************************************
       * Program: MONOSTDOUT
-      * Author : Richard J Schoen...This is a test.........
+      * Author : Richard J Schoen...This is a test..from this iFS.......
       * Desc . : This program will read the selected STDOUT log file and
       *          send back info to the caller for processing the
       *          selected log messages. MONOSTDOUT is created in QTEMP
