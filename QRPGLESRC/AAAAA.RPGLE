@@ -6,4 +6,4 @@
       * @@TYPE: RPGLE
       * @@TEXT: aaaaa member
       *---------------------------------------------------------
-     fdsfdfdfds  dsaasd  sss
+     fdsfdfdfds  dsaasd  sss   sss
