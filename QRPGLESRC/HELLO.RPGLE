@@ -8,7 +8,7 @@
       *---------------------------------------------------------
      **FREE
      **FREEMEE
-     azzzzzzzzzzzz
+     azzzzzzzzzzzzzz
      Dcl-S text Char(92);
      Dcl-s sum int(3);
 
