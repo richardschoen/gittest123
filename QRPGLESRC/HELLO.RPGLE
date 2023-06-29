@@ -6,7 +6,7 @@
       * @@TYPE: RPGLE
       * @@TEXT: Hello RPG App
       *---------------------------------------------------------
-     **FREE;
+     **FREE
 
      Dcl-S text Char(92);
      Dcl-s sum int(3);
@@ -17,4 +17,5 @@
      Dsply text;
      dsply %char(sum);
 
+     *inlr=*on;
      Return;
