@@ -7,7 +7,7 @@
       * @@TEXT: Hello RPG App
       *---------------------------------------------------------
      **FREE
-     **FREEMEE
+     **FREEMEEzzz
 
      Dcl-S text Char(92);
      Dcl-s sum int(3);
