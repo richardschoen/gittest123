@@ -6,7 +6,7 @@
       * @@TYPE: RPGLE
       * @@TEXT: Hello RPG App
       *---------------------------------------------------------
-     **FREE
+     **FREEz
 <<<<<<< HEAD
      **FREEMEE
      azzzzzzzzzzzzzz
