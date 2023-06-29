@@ -4,11 +4,10 @@
       * @@FILE: QRPGLESRC
       * @@MEMBER: MONOSTDOUT
       * @@TYPE: RPGLE
-      * @@TEXT: Read and parse stdout log....xxxz
-      *---------------------------------------------------------
+      * @@TEXT: Read and parse stdout log....xxxzzzzzz
      /***************************************************************
       * Program: MONOSTDOUT
-      * Author : Richard J Schoen...This is a test..from this iFS..PHP.....
+      * Author : Richard J Schoen...This is a test..from this iFS.......
       * Desc . : This program will read the selected STDOUT log file and
       *          send back info to the caller for processing the
       *          selected log messages. MONOSTDOUT is created in QTEMP
@@ -16,7 +15,7 @@
       *          Uses its own custom CPF message: NET9898 which
       *          stands for Mono/.Net message.
       *          This way .Net console messages can be picked out of
-      *          the joblog if desired by CPF ID.
+      *          the joblog if desired by CPF Message ID.
       ***************************************************************/
      H DFTACTGRP(*NO) ACTGRP(*NEW)
 
