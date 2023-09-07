@@ -13,7 +13,7 @@
      Dcl-s sum int(3);
 
      text = 'sum is:';
-     sum = 5 + 5;
+     sum = 5 + 5; ;;
 
      Dsply text;
      dsply %char(sum);
