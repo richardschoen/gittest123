@@ -19,4 +19,4 @@
      dsply %char(sum);
 
      *inlr=*on;
-     Return;;   ;
+     Return;;;;;   ;
