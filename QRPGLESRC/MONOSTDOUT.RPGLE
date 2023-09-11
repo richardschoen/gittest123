@@ -4,8 +4,8 @@
       * @@FILE: QRPGLESRC
       * @@MEMBER: MONOSTDOUT
       * @@TYPE: RPGLE
-      * @@TEXT: Read and parse stdout log....xxxzzzzzz
-     /***************************************************************
+      * @@TEXT: Read and parse stdout log
+      *---------------------------------------------------------
       * Program: MONOSTDOUT
       * Author : Richard J Schoen...This is a test..from this iFS.......
       * Desc . : This program will read the selected STDOUT log file and
@@ -16,6 +16,7 @@
       *          stands for Mono/.Net message.
       *          This way .Net console messages can be picked out of
       *          the joblog if desired by CPF Message ID.
+      *          This is a new comment.
       ***************************************************************/
      H DFTACTGRP(*NO) ACTGRP(*NEW)
 
