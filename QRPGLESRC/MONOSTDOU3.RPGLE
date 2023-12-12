@@ -4,10 +4,10 @@
       * @@FILE: QRPGLESRC
       * @@MEMBER: MONOSTDOU3
       * @@TYPE: RPGLE
-      * @@TEXT: Read and parse stdout log....xxxzxaaa
+      * @@TEXT: Read and parse stdout log
       *---------------------------------------------------------
      /***************************************************************
-      * Program: MONOSTDOUT
+      * Program: MONOSTDOU3
       * Author : Richard J Schoen
       * Desc . : This program will read the selected STDOUT log file and
       *          send back info to the caller for processing the
