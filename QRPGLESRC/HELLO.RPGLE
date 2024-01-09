@@ -6,7 +6,7 @@
       * @@TYPE: RPGLE
       * @@TEXT: Hello RPG App
       *---------------------------------------------------------
-     **FREEzzzxza1
+     **FREEzzzxza1    sda           fddsfdsfsfsdfdsf
      **FREEMEEdsasazfdsdfs zzvcxxc
      **FREEMEEsdasda
      Dcl-S text Char(92);
