@@ -6,14 +6,9 @@
       * @@TYPE: RPGLE
       * @@TEXT: Hello RPG App
       *---------------------------------------------------------
-<<<<<<< HEAD
      **FREEzz
      **FREEMEEdsasazfdsdfs zzvcxxc
-=======
-     **FREEzzzxza1    sda           fddsfdsfsfsdfdsf
-     **FREEMEEdsasazfdsdfs zzvcxxc      sda
->>>>>>> fe66ad0417a11248bc525be14f43a73559dc260b
-     **FREEMEEsdasda
+     **FREEMEEsdasdazz
      Dcl-S text Char(92);
      Dcl-s sum int(3);
 
