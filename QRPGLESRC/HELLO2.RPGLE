@@ -7,7 +7,7 @@
       * @@TEXT: Hello RPG App 2
       *---------------------------------------------------------
      **FREE
-     // This is a commentzzzzzzz
+     // This is a commentzzzzzzzzz
      Dcl-S text char(5);
           **FREE
      text = 'hello git again;
