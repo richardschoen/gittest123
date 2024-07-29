@@ -11,7 +11,7 @@
      Dcl-s sum int(10);
 
      text = 'sum is:';
-     sum = 5 + 5;
+     dum = 5 + 5;
 
      Dsply text;
      dsply %char(sum);
