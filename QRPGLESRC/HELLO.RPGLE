@@ -6,15 +6,17 @@
       * @@TYPE: RPGLE
       * @@TEXT: Hello RPG App
       *---------------------------------------------------------
-**free
-     Dcl-S text Char(32);
-     Dcl-s sum int(10);
+     **FREEzz
+     **FREEMEEdsasazfdsdfs zzvcxxc
+     **FREEMEEsdasdazzz
+     Dcl-S text Char(92);
+     Dcl-s sum int(3);
 
      text = 'sum is:';
-     dum = 5 + 5;
+     sum = 5 + 5; ;;
 
      Dsply text;
      dsply %char(sum);
 
      *inlr=*on;
-     Return;
+     Retdrn;;;
