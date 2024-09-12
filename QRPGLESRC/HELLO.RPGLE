@@ -10,7 +10,7 @@
      Dcl-S text Char(32);
      Dcl-s sum int(10);
 
-     text = 'sum is:';;;;;;;;;;;  zzzzzzz
+     text = 'sum is:';;;;;;;;;;;  zzzzzzzQ
      dum = 5 + 5;
 
      Dsply text;
