@@ -5,9 +5,12 @@
       * @@MEMBER: HELLO
       * @@TYPE: RPGLE
       * @@TEXT: Hello RPG App
+      *Version:
+      *dsdsada
       *---------------------------------------------------------
 **free
      Dcl-S text Char(32);          xzxzxcz
+     D
      Dcl-s sum int(10);
 
      text = 'sum is:';;;;;;;;;;;  zzzzzzzQ
