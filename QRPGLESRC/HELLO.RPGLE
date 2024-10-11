@@ -7,7 +7,7 @@
       * @@TEXT: Hello RPG App
       *---------------------------------------------------------
 **free
-     Dcl-S text Char(32);
+     Dcl-S text Char(32);          xzxzxcz
      Dcl-s sum int(10);
 
      text = 'sum is:';;;;;;;;;;;  zzzzzzzQ
