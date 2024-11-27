@@ -10,7 +10,7 @@
       *---------------------------------------------------------
 **free
      Dcl-S text Char(32);          xzxzxcz
-     D
+     DD
      Dcl-s sum int(10);
 
      text = 'sum is:';;;;;;;;;;;  zzzzzzzQ
