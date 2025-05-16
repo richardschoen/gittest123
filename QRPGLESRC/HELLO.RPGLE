@@ -7,6 +7,7 @@
       * @@TEXT: Hello RPG App
       *Version:
       *dsdsada
+      *Test for today
       *---------------------------------------------------------
 **free
      Dcl-S text Char(32);          xzxzxcz
