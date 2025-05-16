@@ -32,7 +32,7 @@
              MONMSG     MSGID(CPF0000) EXEC(GOTO CMDLBL(ERRORS))
 
 /**---------------------------------------------------------------------------*/
-/* Parse outfile parm */
+/* Parse outfile parm   */
 /*----------------------------------------------------------------------------*/
              CHGVAR     VAR(&OLIB) VALUE(%SST(&OUTFILE 11 10))
              CHGVAR     VAR(&OFILE) VALUE(%SST(&OUTFILE 1 10))
