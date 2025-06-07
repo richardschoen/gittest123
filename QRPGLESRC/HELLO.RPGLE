@@ -1,4 +1,5 @@
-      *---------------------------------------------------------
+2     *---------------------------------------------------------
+      *
       * Source information
       * @@LIBRARY: GITTEST123
       * @@FILE: QRPGLESRC
@@ -8,7 +9,7 @@
       *Version:
       *dsdsada
       *Test for today
-      *Test for today 5/16/2025c
+      *Test for today 5/16/2025cd ss
       *---------------------------------------------------------
 **free
      Dcl-S text Char(32);          xzxzxcz
