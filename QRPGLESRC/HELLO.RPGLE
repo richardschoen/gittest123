@@ -9,7 +9,7 @@
       *Version:
       *---------------------------------------------------------
 **free
-     Dcl-S text Char(32);          xzxzxcz
+zzzzzDcl-S text Char(32);          xzxzxcz
      DD
      Dcl-s sum int(10);
 
