@@ -1,0 +1,92 @@
+/*------------------------------------------------------------*/
+/* @@LIBRARY: GITTEST123                                      */
+/* @@FILE: QCLSRC                                             */
+/* @@MEMBER: MNMAILSENC                                       */
+/* @@TYPE: CLLE                                               */
+/* @@TEXT: Send Email Message using MailKit                   */
+/*------------------------------------------------------------*/
+             PGM        PARM(&FROMADDR &TOADDR &CCADDR &BCCADDR +
+                          &SUBJECT &BODYTEXT &BODYFILE &ATTACHMENT +
+                          &SMTPHOST &SMTPPORT &SMTPAUTTYP +
+                          &SMTPUSEAUT &SMTPUSER &SMTPPASS &OUTFILE +
+                          &MONOPATH &DSPSTDOUT &LOGSTDOUT +
+                          &PRTSTDOUT &DLTSTDOUT)
+
+             DCL        VAR(&FROMADDR) TYPE(*CHAR) LEN(255)
+             DCL        VAR(&TOADDR) TYPE(*CHAR) LEN(400)
+             DCL        VAR(&CCADDR) TYPE(*CHAR) LEN(400)
+             DCL        VAR(&BCCADDR) TYPE(*CHAR) LEN(400)
+             DCL        VAR(&SUBJECT) TYPE(*CHAR) LEN(255)
+             DCL        VAR(&BODYTEXT) TYPE(*CHAR) LEN(400)
+             DCL        VAR(&BODYFILE) TYPE(*CHAR) LEN(255)
+             DCL        VAR(&ATTACHMENT) TYPE(*CHAR) LEN(400)
+             DCL        VAR(&SMTPHOST) TYPE(*CHAR) LEN(255)
+             DCL        VAR(&SMTPPORT) TYPE(*CHAR) LEN(5)
+             DCL        VAR(&SMTPAUTTYP) TYPE(*CHAR) LEN(30)
+             DCL        VAR(&SMTPUSEAUT) TYPE(*CHAR) LEN(5)
+             DCL        VAR(&SMTPUSER) TYPE(*CHAR) LEN(100)
+             DCL        VAR(&SMTPPASS) TYPE(*CHAR) LEN(100)
+             DCL        VAR(&IFSDIR) TYPE(*CHAR) LEN(255)
+             DCL        VAR(&FILEFILTER) TYPE(*CHAR) LEN(100)
+             DCL        VAR(&INCLSUBDIR) TYPE(*CHAR) LEN(5)
+             DCL        VAR(&OUTPUTFILE) TYPE(*CHAR) LEN(255)
+             DCL        VAR(&REPLACE) TYPE(*CHAR) LEN(5)
+             DCL        VAR(&THROTTLEMS) TYPE(*CHAR) LEN(5)
+             DCL        VAR(&MONOPATH) TYPE(*CHAR) LEN(255)
+             DCL        VAR(&OUTFILE) TYPE(*CHAR) LEN(20)
+             DCL        VAR(&OFILE) TYPE(*CHAR) LEN(10)
+             DCL        VAR(&OLIB) TYPE(*CHAR) LEN(10)
+             DCL        VAR(&WORKDIR) TYPE(*CHAR) LEN(255)
+             DCL        VAR(&EXEFILE) TYPE(*CHAR) LEN(255)
+             DCL        VAR(&EXEFULL) TYPE(*CHAR) LEN(255)
+             DCL        VAR(&DSPSTDOUT) TYPE(*CHAR) LEN(4)
+             DCL        VAR(&LOGSTDOUT) TYPE(*CHAR) LEN(4)
+             DCL        VAR(&PRTSTDOUT) TYPE(*CHAR) LEN(4)
+             DCL        VAR(&DLTSTDOUT) TYPE(*CHAR) LEN(4)
+             DCL        VAR(&DSPSTDOUT) TYPE(*CHAR) LEN(4)
+             DCL        VAR(&DLTSTDOUT) TYPE(*CHAR) LEN(4)
+             MONMSG     MSGID(CPF0000) EXEC(GOTO CMDLBL(ERRORS))
+
+/*----------------------------------------------------------------------------*/
+/* Parse outfile parm */
+/*----------------------------------------------------------------------------*/
+             CHGVAR     VAR(&OLIB) VALUE(%SST(&OUTFILE 11 10))
+             CHGVAR     VAR(&OFILE) VALUE(%SST(&OUTFILE 1 10))
+
+/*----------------------------------------------------------------------------*/
+/* Set work directory and program name to call */
+/*----------------------------------------------------------------------------*/
+             CHGVAR     VAR(&WORKDIR) +
+                          VALUE('/MonoOniSamples/MonoMailSend/MonoMai+
+                          lSend/bin/Debug')
+             CHGVAR     VAR(&EXEFILE) VALUE('MonoMailSend.exe')
+
+/*----------------------------------------------------------------------------*/
+/* Call .Net program to perform email send */
+/*----------------------------------------------------------------------------*/
+             MONO       WORKDIR(&WORKDIR) EXEFILE(&EXEFILE) +
+                          ARGS(&FROMADDR &TOADDR &CCADDR &BCCADDR +
+                          &SUBJECT &BODYTEXT &BODYFILE &ATTACHMENT +
+                          &SMTPHOST &SMTPPORT &SMTPAUTTYP +
+                          &SMTPUSEAUT &SMTPUSER &SMTPPASS) +
+                          OUTFILE(&OLIB/&OFILE) MONOPATH(&MONOPATH) +
+                          DSPSTDOUT(&DSPSTDOUT) +
+                          LOGSTDOUT(&LOGSTDOUT) +
+                          PRTSTDOUT(&PRTSTDOUT) DLTSTDOUT(&DLTSTDOUT)
+
+             SNDPGMMSG  MSGID(CPF9898) MSGF(QCPFMSG) MSGDTA('Email +
+                          was sent successfully to' |> &TOADDR) +
+                          MSGTYPE(*COMP)
+
+             RETURN
+
+/*----------------------------------------------------------------------------*/
+/* HANDLE ERRORS     */
+/*----------------------------------------------------------------------------*/
+ERRORS:
+
+             SNDPGMMSG  MSGID(CPF9898) MSGF(QCPFMSG) MSGDTA('Error +
+                          occurred during email processing. Please +
+                          check the joblog') MSGTYPE(*ESCAPE)
+
+             ENDPGM
