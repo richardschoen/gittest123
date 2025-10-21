@@ -1,0 +1,81 @@
+/*------------------------------------------------------------*/
+/* @@LIBRARY: GITTEST123                                      */
+/* @@FILE: QCLSRC                                             */
+/* @@MEMBER: MNDIRLISTC                                       */
+/* @@TYPE: CLLE                                               */
+/* @@TEXT: List IFS DIrectory Files                           */
+/*------------------------------------------------------------*/
+             PGM        PARM(&IFSDIR &FILEFILTER &INCLSUBDIR +
+                          &OUTPUTFILE &REPLACE &THROTTLEMS &OUTFILE +
+                          &MONOPATH &DSPSTDOUT &LOGSTDOUT +
+                          &PRTSTDOUT &DLTSTDOUT)
+
+             DCL        VAR(&IFSDIR) TYPE(*CHAR) LEN(255)
+             DCL        VAR(&FILEFILTER) TYPE(*CHAR) LEN(100)
+             DCL        VAR(&INCLSUBDIR) TYPE(*CHAR) LEN(5)
+             DCL        VAR(&OUTPUTFILE) TYPE(*CHAR) LEN(255)
+             DCL        VAR(&REPLACE) TYPE(*CHAR) LEN(5)
+             DCL        VAR(&THROTTLEMS) TYPE(*CHAR) LEN(5)
+             DCL        VAR(&MONOPATH) TYPE(*CHAR) LEN(255)
+             DCL        VAR(&OUTFILE) TYPE(*CHAR) LEN(20)
+             DCL        VAR(&OFILE) TYPE(*CHAR) LEN(10)
+             DCL        VAR(&OLIB) TYPE(*CHAR) LEN(10)
+             DCL        VAR(&WORKDIR) TYPE(*CHAR) LEN(255)
+             DCL        VAR(&EXEFILE) TYPE(*CHAR) LEN(255)
+             DCL        VAR(&EXEFULL) TYPE(*CHAR) LEN(255)
+             DCL        VAR(&DSPSTDOUT) TYPE(*CHAR) LEN(4)
+             DCL        VAR(&LOGSTDOUT) TYPE(*CHAR) LEN(4)
+             DCL        VAR(&PRTSTDOUT) TYPE(*CHAR) LEN(4)
+             DCL        VAR(&DLTSTDOUT) TYPE(*CHAR) LEN(4)
+             DCL        VAR(&DSPSTDOUT) TYPE(*CHAR) LEN(4)
+             DCL        VAR(&DLTSTDOUT) TYPE(*CHAR) LEN(4)
+             MONMSG     MSGID(CPF0000) EXEC(GOTO CMDLBL(ERRORS))
+
+/**---------------------------------------------------------------------------*/
+/* Parse outfile parm   */
+/*----------------------------------------------------------------------------*/
+             CHGVAR     VAR(&OLIB) VALUE(%SST(&OUTFILE 11 10))
+             CHGVAR     VAR(&OFILE) VALUE(%SST(&OUTFILE 1 10))
+
+/*----------------------------------------------------------------------------*/
+/* Set work directory and program name to call */
+/*----------------------------------------------------------------------------*/
+             CHGVAR     VAR(&WORKDIR) +
+                          VALUE('/MonoOniSamples/MonoDirList/MonoDirL+
+                          ist/bin/Debug')
+             CHGVAR     VAR(&EXEFILE) VALUE('MonoDirList.exe')
+
+/*----------------------------------------------------------------------------*/
+/* Delete temp list PF                           */
+/*----------------------------------------------------------------------------*/
+             DLTF       FILE(MONOTEMP/MONODIRLST)
+             MONMSG     MSGID(CPF0000)
+
+/*----------------------------------------------------------------------------*/
+/* Call .Net program to perform document checkin */
+/*----------------------------------------------------------------------------*/
+             MONO       WORKDIR(&WORKDIR) EXEFILE(&EXEFILE) +
+                          ARGS(&IFSDIR &FILEFILTER &INCLSUBDIR +
+                          &OUTPUTFILE &REPLACE &THROTTLEMS) +
+                          OUTFILE(&OLIB/&OFILE) MONOPATH(&MONOPATH) +
+                          DSPSTDOUT(&DSPSTDOUT) +
+                          LOGSTDOUT(&LOGSTDOUT) +
+                          PRTSTDOUT(&PRTSTDOUT) DLTSTDOUT(&DLTSTDOUT)
+
+             SNDPGMMSG  MSGID(CPF9898) MSGF(QCPFMSG) +
+                          MSGDTA('Directory list ran successfully +
+                          to output file MONOTEMP/MONODIRLST') +
+                          MSGTYPE(*COMP)
+
+             RETURN
+
+/*----------------------------------------------------------------------------*/
+/* HANDLE ERRORS     */
+/*----------------------------------------------------------------------------*/
+ERRORS:
+
+             SNDPGMMSG  MSGID(CPF9898) MSGF(QCPFMSG) MSGDTA('Error +
+                          occurred during directory list process. +
+                          Please check the joblog') MSGTYPE(*ESCAPE)
+
+             ENDPGM
