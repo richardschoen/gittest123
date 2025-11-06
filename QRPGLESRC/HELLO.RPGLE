@@ -5,15 +5,15 @@
       * @@FILE: QRPGLESRC
       * @@MEMBER: HELLO
       * @@TYPE: RPGLE
-      * @@TEXT: Hello RPG App..
+      * @@TEXT: Hello RPG App................
       *Version:
       *---------------------------------------------------------
 **free
-zzzzzDcl-S text Char(32);          xzxzxcz
+zzzzzDcl-S text Char(32);
      DD
      Dcl-s sum int(10);
 
-     text = 'sum is:';;;;;;;;;;;  zzzzzzzQ
+     text = 'sum is:';;;;;;;;;;;
      dum = 5 + 5;
 
      Dsply text;
