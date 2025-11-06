@@ -20,6 +20,7 @@
       *          This is a new comment.
       *          This is another new comment.
       *          This is another new comment.
+      *          This is another new comment.
       ***************************************************************/
      H DFTACTGRP(*NO) ACTGRP(*NEW)
 
