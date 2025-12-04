@@ -5,7 +5,7 @@
       * @@FILE: QRPGLESRC
       * @@MEMBER: HELLO
       * @@TYPE: RPGLE
-      * @@TEXT: Hello RPG App...xx...........
+      * @@TEXT: Hello RPG App...xx...........zz
       *Version:
       *---------------------------------------------------------
 **free
