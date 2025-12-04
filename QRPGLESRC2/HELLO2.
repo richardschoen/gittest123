@@ -1,17 +1,17 @@
-      *---------------------------------------------------------
-      * Source information
-      * @@LIBRARY: GITTEST123
-      * @@FILE: QRPGLESRC
-      * @@MEMBER: HELLO2
-      * @@TYPE: RPGLE
-      * @@TEXT: Hello RPG App 2
-      *---------------------------------------------------------
-     **FREE
-     // This is a commentzzzzzzz
-     Dcl-S text char(5);
-          **FREE
-     text = 'hello git again;
-
-     dsply text;
-
-     return;zzz
+000100000000      *---------------------------------------------------------
+000200000000      * Source information
+000300000000      * @@LIBRARY: GITTEST123
+000400000000      * @@FILE: QRPGLESRC
+000500000000      * @@MEMBER: HELLO2
+000600000000      * @@TYPE: RPGLE
+000700000000      * @@TEXT: Hello RPG App 2
+000800000000      *---------------------------------------------------------
+000900000000     **FREE
+001000000000     // This is a commentzzzzzzz
+001100000000     Dcl-S text char(5);
+001200000000          **FREE
+001300000000     text = 'hello git again;
+001400000000
+001500000000     dsply text;
+001600000000
+001700000000     return;zzz
