@@ -1,9 +1,9 @@
-      *---------------------------------------------------------
-      * Source information
-      * @@LIBRARY: GITTEST123
-      * @@FILE: QRPGLESRC
-      * @@MEMBER: AAAAA
-      * @@TYPE: RPGLE
-      * @@TEXT: aaaaa member
-      *---------------------------------------------------------
-     fdsfdfdfds  dsaasd  sss   sss
+000100000000      *---------------------------------------------------------
+000200000000      * Source information
+000300000000      * @@LIBRARY: GITTEST123
+000400000000      * @@FILE: QRPGLESRC
+000500000000      * @@MEMBER: AAAAA
+000600000000      * @@TYPE: RPGLE
+000700000000      * @@TEXT: aaaaa member
+000800000000      *---------------------------------------------------------
+000900000000     fdsfdfdfds  dsaasd  sss   sss
