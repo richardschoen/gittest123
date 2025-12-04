@@ -1,22 +1,22 @@
-      *---------------------------------------------------------
-      * Source information
-      * @@LIBRARY: GITTEST123
-      * @@FILE: QRPGLESRC
-      * @@MEMBER: HELLO
-      * @@TYPE: RPGLE
-      * @@TEXT: Hello RPG App
-      *---------------------------------------------------------
-     **FREEzz
-     **FREEMEE
-     **FREEMEEsdasda
-     Dcl-S text Char(92);
-     Dcl-s sum int(3);
-
-     text = 'sum is:';
-     sum = 5 + 5; ;;
-
-     Dsply text;
-     dsply %char(sum);
-
-     *inlr=*on;
-     Retdrn;;;
+000100000000      *---------------------------------------------------------
+000200000000      * Source information
+000300000000      * @@LIBRARY: GITTEST123
+000400000000      * @@FILE: QRPGLESRC
+000500000000      * @@MEMBER: HELLO
+000600000000      * @@TYPE: RPGLE
+000700000000      * @@TEXT: Hello RPG App
+000800000000      *---------------------------------------------------------
+000900000000     **FREEzz
+001000000000     **FREEMEE
+001100000000     **FREEMEEsdasda
+001200000000     Dcl-S text Char(92);
+001300000000     Dcl-s sum int(3);
+001400000000
+001500000000     text = 'sum is:';
+001600000000     sum = 5 + 5; ;;
+001700000000
+001800000000     Dsply text;
+001900000000     dsply %char(sum);
+002000000000
+002100000000     *inlr=*on;
+002200000000     Retdrn;;;
