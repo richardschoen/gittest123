@@ -1,83 +1,83 @@
-/*------------------------------------------------------------*/
-/* @@LIBRARY: GITTEST123                                      */
-/* @@FILE: QCLSRC                                             */
-/* @@MEMBER: MONODB2PTC                                       */
-/* @@TYPE: CLLE                                               */
-/* @@TEXT: Set Yum,unixODBC and DB2 Connect ODBC Driver Paths */
-/*------------------------------------------------------------*/
-             PGM        PARM(&MONOPATH)
-
-             DCL        VAR(&MONOPATH) TYPE(*CHAR) LEN(255)
-             DCL        VAR(&PASEPATH) TYPE(*CHAR) LEN(1024)
-
-/**If default mono path data area, retreive from data area */
-             IF         COND(&MONOPATH *EQ *DEFAULT) THEN(DO)
-             RTVDTAARA  DTAARA(MONOI/MONOPATH *ALL) RTNVAR(&MONOPATH)
-             ENDDO
-
-/* Set up LIBPATH for DB2 Connect and Yum Packages */
-             ADDENVVAR  ENVVAR(LIBPATH) +
-                          VALUE('/QOpenSys/usr/local/lib:/home/db2_cl+
-                          i_odbc_driver/dsdriver/aix64/lib:/QOpenSys/+
-                          pkgs/lib') CCSID(*JOB) LEVEL(*JOB) +
-                          REPLACE(*YES)
-
-/* Set multithreaded environment variable */
-             ADDENVVAR  ENVVAR(QIBM_MULTI_THREADED) VALUE(Y) +
-                          REPLACE(*YES)
-
-/* Set path to PASE, MONO and Yum Packages */
-             CHGVAR     VAR(&PASEPATH) +
-                          VALUE('/QOpenSys/usr/bin:/usr/ccs/bin:/QOpe+
-                          nSys/usr/bin/X11:/usr/sbin:.:/usr/bin:/QOpe+
-                          nSys/usr/local/bin:/usr/local/bin:/usr/loca+
-                          l/sbin:' |< &MONOPATH |< +
-                          ':/QOpenSys/pkgs/bin:/QOpenSys/pkgs/lib:/ho+
-                          me/db2_cli_odbc_driver/dsdriver/aix64/bin:/+
-                          home/db2_cli_odbc_driver/dsdriver/aix64/lib+
-                          :$PATH')
-
-             ADDENVVAR  ENVVAR(PASE_PATH) VALUE(&PASEPATH) +
-                          LEVEL(*JOB) REPLACE(*YES)
-
-/* Set PASE flag to Ignore bad AIX errors - libcfg.a or libodm.a  */
-/* This helps the db2o.o driver ignore the bad AIX libs we copied.*/
-             ADDENVVAR  ENVVAR(PASE_SYSCALL_NOSIGILL) +
-                          VALUE('ALL:quotactl=EPERM:audit=0') +
-                          LEVEL(*JOB) REPLACE(*YES)
-
-/* Set DB2 Connect Path Install Dir Info */
-             ADDENVVAR  ENVVAR(DB2_CLI_DRIVER_INSTALL_PATH) +
-                          VALUE('/home/db2_cli_odbc_driver/dsdriver/a+
-                          ix64') LEVEL(*JOB) REPLACE(*YES)
-
-/* Set DB2 Connect and Yum Library Paths */
-             ADDENVVAR  ENVVAR(LD_LIBRARY_PATH) +
-                          VALUE('/home/db2_cli_odbc_driver/dsdriver/a+
-                          ix64/lib:/QOpenSys/pkgs/lib') LEVEL(*JOB) +
-                          REPLACE(*YES)
-
-/* Set general PATH */
-             ADDENVVAR  ENVVAR(PATH) +
-                          VALUE('/home/db2_cli_odbc_driver/dsdriver/a+
-                          ix64/bin:/home/db2_cli_odbc_driver/dsdriver+
-                          /aix64/adm:$PATH') LEVEL(*JOB) REPLACE(*YES)
-
-/* Set general PATH for Qshell and Yum binaries */
-/***** QSH PATH  ADDENVVAR  ENVVAR(PATH) +
-                          VALUE('/QOpenSys/pkgs/bin:/QOpenSys/usr/bin+
-                          :/QOpenSys/QIBM/ProdData/OPS/tools/bin:/QOp+
-                          enSys/usr/bin:/usr/ccs/bin:/usr/sbin:usr/bi+
-                          n') LEVEL(*JOB) REPLACE(*YES) *****/
-
-/* Set general PATH for binaries. Qshell, Yum, DB2 Connect (if loaded) */
-             ADDENVVAR  ENVVAR(PATH) +
-                          VALUE('/QOpenSys/pkgs/bin:/QOpenSys/usr/bin+
-                          :/QOpenSys/QIBM/ProdData/OPS/tools/bin:/QOp+
-                          enSys/usr/bin:/usr/ccs/bin:/usr/sbin:/usr/b+
-                          in:/usr/bin/home/db2_cli_odbc_driver/dsdriv+
-                          er/aix64/bin:/home/db2_cli_odbc_driver/dsdr+
-                          iver/aix64/adm:$PATH') LEVEL(*JOB) +
-                          REPLACE(*YES)
-
-             ENDPGM
+000100000000/*------------------------------------------------------------*/
+000200000000/* @@LIBRARY: GITTEST123                                      */
+000300000000/* @@FILE: QCLSRC                                             */
+000400000000/* @@MEMBER: MONODB2PTC                                       */
+000500000000/* @@TYPE: CLLE                                               */
+000600000000/* @@TEXT: Set Yum,unixODBC and DB2 Connect ODBC Driver Paths */
+000700000000/*------------------------------------------------------------*/
+000800000000             PGM        PARM(&MONOPATH)
+000900000000
+001000000000             DCL        VAR(&MONOPATH) TYPE(*CHAR) LEN(255)
+001100000000             DCL        VAR(&PASEPATH) TYPE(*CHAR) LEN(1024)
+001200000000
+001300000000/**If default mono path data area, retreive from data area */
+001400000000             IF         COND(&MONOPATH *EQ *DEFAULT) THEN(DO)
+001500000000             RTVDTAARA  DTAARA(MONOI/MONOPATH *ALL) RTNVAR(&MONOPATH)
+001600000000             ENDDO
+001700000000
+001800000000/* Set up LIBPATH for DB2 Connect and Yum Packages */
+001900000000             ADDENVVAR  ENVVAR(LIBPATH) +
+002000000000                          VALUE('/QOpenSys/usr/local/lib:/home/db2_cl+
+002100000000                          i_odbc_driver/dsdriver/aix64/lib:/QOpenSys/+
+002200000000                          pkgs/lib') CCSID(*JOB) LEVEL(*JOB) +
+002300000000                          REPLACE(*YES)
+002400000000
+002500000000/* Set multithreaded environment variable */
+002600000000             ADDENVVAR  ENVVAR(QIBM_MULTI_THREADED) VALUE(Y) +
+002700000000                          REPLACE(*YES)
+002800000000
+002900000000/* Set path to PASE, MONO and Yum Packages */
+003000000000             CHGVAR     VAR(&PASEPATH) +
+003100000000                          VALUE('/QOpenSys/usr/bin:/usr/ccs/bin:/QOpe+
+003200000000                          nSys/usr/bin/X11:/usr/sbin:.:/usr/bin:/QOpe+
+003300000000                          nSys/usr/local/bin:/usr/local/bin:/usr/loca+
+003400000000                          l/sbin:' |< &MONOPATH |< +
+003500000000                          ':/QOpenSys/pkgs/bin:/QOpenSys/pkgs/lib:/ho+
+003600000000                          me/db2_cli_odbc_driver/dsdriver/aix64/bin:/+
+003700000000                          home/db2_cli_odbc_driver/dsdriver/aix64/lib+
+003800000000                          :$PATH')
+003900000000
+004000000000             ADDENVVAR  ENVVAR(PASE_PATH) VALUE(&PASEPATH) +
+004100000000                          LEVEL(*JOB) REPLACE(*YES)
+004200000000
+004300000000/* Set PASE flag to Ignore bad AIX errors - libcfg.a or libodm.a  */
+004400000000/* This helps the db2o.o driver ignore the bad AIX libs we copied.*/
+004500000000             ADDENVVAR  ENVVAR(PASE_SYSCALL_NOSIGILL) +
+004600000000                          VALUE('ALL:quotactl=EPERM:audit=0') +
+004700000000                          LEVEL(*JOB) REPLACE(*YES)
+004800000000
+004900000000/* Set DB2 Connect Path Install Dir Info */
+005000000000             ADDENVVAR  ENVVAR(DB2_CLI_DRIVER_INSTALL_PATH) +
+005100000000                          VALUE('/home/db2_cli_odbc_driver/dsdriver/a+
+005200000000                          ix64') LEVEL(*JOB) REPLACE(*YES)
+005300000000
+005400000000/* Set DB2 Connect and Yum Library Paths */
+005500000000             ADDENVVAR  ENVVAR(LD_LIBRARY_PATH) +
+005600000000                          VALUE('/home/db2_cli_odbc_driver/dsdriver/a+
+005700000000                          ix64/lib:/QOpenSys/pkgs/lib') LEVEL(*JOB) +
+005800000000                          REPLACE(*YES)
+005900000000
+006000000000/* Set general PATH */
+006100000000             ADDENVVAR  ENVVAR(PATH) +
+006200000000                          VALUE('/home/db2_cli_odbc_driver/dsdriver/a+
+006300000000                          ix64/bin:/home/db2_cli_odbc_driver/dsdriver+
+006400000000                          /aix64/adm:$PATH') LEVEL(*JOB) REPLACE(*YES)
+006500000000
+006600000000/* Set general PATH for Qshell and Yum binaries */
+006700000000/***** QSH PATH  ADDENVVAR  ENVVAR(PATH) +
+006800000000                          VALUE('/QOpenSys/pkgs/bin:/QOpenSys/usr/bin+
+006900000000                          :/QOpenSys/QIBM/ProdData/OPS/tools/bin:/QOp+
+007000000000                          enSys/usr/bin:/usr/ccs/bin:/usr/sbin:usr/bi+
+007100000000                          n') LEVEL(*JOB) REPLACE(*YES) *****/
+007200000000
+007300000000/* Set general PATH for binaries. Qshell, Yum, DB2 Connect (if loaded) */
+007400000000             ADDENVVAR  ENVVAR(PATH) +
+007500000000                          VALUE('/QOpenSys/pkgs/bin:/QOpenSys/usr/bin+
+007600000000                          :/QOpenSys/QIBM/ProdData/OPS/tools/bin:/QOp+
+007700000000                          enSys/usr/bin:/usr/ccs/bin:/usr/sbin:/usr/b+
+007800000000                          in:/usr/bin/home/db2_cli_odbc_driver/dsdriv+
+007900000000                          er/aix64/bin:/home/db2_cli_odbc_driver/dsdr+
+008000000000                          iver/aix64/adm:$PATH') LEVEL(*JOB) +
+008100000000                          REPLACE(*YES)
+008200000000
+008300000000             ENDPGM
