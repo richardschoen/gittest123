@@ -7,7 +7,7 @@
       * @@TEXT: Hello RPG App
       *---------------------------------------------------------
 **free
-     // This is my Friday change..
+     // This is my Friday change 2..
      Dcl-S text Char(32);  ;
      DD
      Dcl-s sum int(10);;;;
