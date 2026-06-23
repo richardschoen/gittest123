@@ -5,7 +5,7 @@
 /* @@TYPE: CLLE                                               */
 /* @@TEXT: Build .Net Solution (.SLN)                         */
 /*------------------------------------------------------------*/
-             PGM        PARM(&WORKDIR &XBUILDCMD &OUTFILE +
+ zz          PGM        PARM(&WORKDIR &XBUILDCMD &OUTFILE +
                           &MONOPATH &DSPSTDOUT &LOGSTDOUT +
                           &PRTSTDOUT &DLTSTDOUT)
 
