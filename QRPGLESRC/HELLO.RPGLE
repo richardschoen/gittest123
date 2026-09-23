@@ -19,8 +19,4 @@
      dsply %char(sum);
 
      *inlr=*on;
-<<<<<<< HEAD
      Return;;
-=======
-     Return;;;
->>>>>>> 789dee6a0627327a56a4550b2ec4f451dfbd3fc9
