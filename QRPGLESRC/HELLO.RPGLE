@@ -7,16 +7,16 @@
       * @@TEXT: Hello RPG App
       *---------------------------------------------------------
 **free
-     // This is my Friday change 5..
+     // This is my Friday change 6..
      Dcl-S text Char(32);  ;
      DD
      Dcl-s sum int(10);;;;
 
      text = 'sum is:';;;;;;;;;;;;;;;;;;;;;;
-     dum = 5 + 5;;;;;;;;;;;;;;Z
+     dum = 5 + 5;
 
      Dsply text;
      dsply %char(sum);
 
      *inlr=*on;
-     Return;;;;;;;;
+     Return;;;
