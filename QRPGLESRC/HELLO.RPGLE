@@ -13,10 +13,10 @@
      Dcl-s sum int(10);;;;
 
      text = 'sum is:';;;;;;;;;;;;;;;;;;;;;;
-     dum = 5 + 5;
+     dum = 5 + 5;;;;;;;;;;;;;;Z
 
      Dsply text;
      dsply %char(sum);
 
      *inlr=*on;
-     Return;;;
+     Return;;;;;;;;
